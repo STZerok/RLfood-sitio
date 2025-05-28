@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 90" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="sw-gradient-0" x1="0%" x2="0%" y1="0%" y2="50%">
+      <stop offset="0%" style="stop-color:rgba(243, 106, 62, 1)"/>
+      <stop offset="100%" style="stop-color:rgba(255, 179, 11, 1)"/>
+    </linearGradient>
+  </defs>
+  <path d="M-16.02,-20.17 C137.47,211.11 346.84,-167.80 602.48,203.23 L500.00,-0.00 L13.88,-44.78 Z" style="stroke: none; fill: url(#sw-gradient-0);"></path>
+</svg>
