@@ -632,8 +632,9 @@ input::placeholder, textarea::placeholder{
     border-bottom: 2px solid rgb(88, 88, 88);
     box-shadow: #545454 1px 2px 8px;
 }
-.contacto h3{
+.contacto h2{
     margin-bottom: 50px;
+    font-size: 20px;
 }
 footer {
     background-color: #000000;
