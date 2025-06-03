@@ -9,22 +9,11 @@ body {
     
 }
 
-header {
-    height: 150px;
-    width: 100%;
-    display: flex;
-    text-align: center;
+.navbar {
+    height: 80px;
     position: fixed;
-    
-    z-index: 1000; /* Ajusta el valor del z-index según sea necesario */
-}
-header .links {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    margin-bottom: 25px;
+    z-index: 1000;
 }
 html{
     scroll-behavior:smooth;
@@ -33,7 +22,7 @@ html{
 section{
     scroll-margin-top: 10ex;
 }
-header .logo img {
+ .navbar-brand img {
     position: absolute;
     margin-top: 15px;
     /* padding-left: 50px; */
@@ -45,7 +34,7 @@ header .logo img {
 
 }
 
-header a {
+.navbar a {
     text-decoration: none;
     color: #FFFFFF;
 }
@@ -76,17 +65,17 @@ ul {
     padding: 0;
 }
 
-header .links a {
+.navbar-nav a {
     margin: 15px;
 }
 
-header a {
+nav.navbar a {
     text-decoration: none;
     color: #FFFFFF;
     position: relative;
 }
 
-header .links a::before {
+.navbar-nav a::before {
     content: "";
     position: absolute;
     width: 0;
@@ -100,7 +89,7 @@ header .links a::before {
     bottom: -8px;
 }
 
-header .links a:hover::before {
+.navbar-nav a:hover::before {
     width: 80%;
     opacity: 1;
 }
@@ -146,7 +135,7 @@ header .links a:hover::before {
 
 /* Estilos adicionales para la animación */
 
-header.scrolled {
+.navbar.scrolled {
     background-color:rgb(0, 0, 0) ;
     background-image: url();
     background-size: cover;
@@ -155,19 +144,19 @@ header.scrolled {
     /* border-bottom: #545454 2px solid; */
 }
 
-.logo img.small {
+.navbar-brand img.small {
     width: 60px; /* Modifica el tamaño del logo al hacer scroll */
     transition: width 0.3s; /* Agrega transiciones suaves */
 
 }
 
-.links.up {
+.navbar-nav.up {
     transform: translateY(10px);
      /* Sube ligeramente los enlaces al hacer scroll */
     transition: transform 0.3s; /* Agrega transiciones suaves */
     text-shadow: #545454 2px 2px 2px;
 }
-.logo img.small {
+.navbar-brand img.small {
     width: 60px;
     /* Ajusta los valores según tus preferencias */
 }
@@ -1049,18 +1038,18 @@ textarea{
         max-width: 100%;
         /* overflow: hidden; */
     }
-    header{
+    .navbar{
         max-width: 100%;
         }
-    header .links{
+    .navbar-nav{
         display: none;
     }
-    header .logo {
+    .navbar-brand {
         display: flex;
         /* justify-content: center; */
         margin-left: 25%;
     }
-    header.scrolled{
+    .navbar.scrolled{
         padding: 0;
         margin: 0;
         transition: none;
@@ -1069,11 +1058,11 @@ textarea{
         height: 100px;
         /* display: none; */
     }
-    header .logo img{
+    .navbar-brand img{
         width: 100%;
-        
+
     }
-    .logo img.small {
+    .navbar-brand img.small {
         width: 100px;
     }
     .text{
@@ -1106,7 +1095,7 @@ textarea{
     
     }
 
-    header .logo img {
+    .navbar-brand img {
         width: 100px;
     }
     .nom{

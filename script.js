@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const header = document.querySelector('header');
-    const logo = document.querySelector('.logo img');
-    const links = document.querySelector('.links');
+    const header = document.querySelector('nav.navbar');
+    const logo = document.querySelector('.navbar-brand img');
+    const links = document.querySelector('.navbar-nav');
 
     window.addEventListener('scroll', function () {
         const scrollPos = window.scrollY;
