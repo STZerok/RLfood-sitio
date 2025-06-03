@@ -241,11 +241,7 @@ nav.navbar a {
     /* border-bottom: solid 2px rgb(48, 48, 48); */
 }
 .mision_vision{
-    display: flex;
-    height: 50%;
-    /* align-items: center; */
     text-align: justify;
-    
 }
 
 .mision__h3{
@@ -256,18 +252,14 @@ nav.navbar a {
     /* width: 55%;    */
 }
 .mision p{
-    width: 50%;
-
+    width: 100%;
     margin: 0 auto;
     hyphens: auto;
     font-size: 1.15em;
-    /* text-align: justify; */
 }
 .mision ul{
-    width: 120%;
-    /* text-align: center; */
-    padding-left: 58px;
-    /* list-style: none; */
+    width: 100%;
+    padding-left: 0;
 }
 .mision li{
     font-size: 1.15em;
@@ -476,22 +468,18 @@ nav.navbar a {
 }
 .nom{
     margin-top: 50px;
-    display: flex;
-    /* background: rgb(146,183,48);
-background: linear-gradient(90deg, rgba(146,183,48,1) 0%, rgba(240,66,42,1) 100%); */
-background: #808080;
+    background: #808080;
     color: white;
     height: 150px;
 }
 .nom__texto{
     display: flex;
-    /* text-align: center; */
     align-items: center;
     justify-content: left;
     margin-left: 2.5%;
 }
 .nom__texto p{
-    width: 55%;
+    width: 100%;
 }
 .nom img{
     width: 250px;
@@ -668,9 +656,7 @@ footer p {
 }
 .repse__texto{
     text-align: left;
-    position: relative;
-    right: 10px;
-    margin-left: 30%;
+    margin-left: 0;
     height: 150px;
     display: flex;
 }
@@ -816,12 +802,8 @@ textarea{
 .garantias {
     margin: 0 auto;
     width: 90%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* grid-template-columns: repeat(3, 1fr); */
     margin-bottom: 100px;
-    gap: 40px; /* Espacio entre las columnas */
-  }
+}
   
   .servicio,
   .salud,
@@ -923,8 +905,7 @@ textarea{
 .canirac__text{
     width: 50%;
     color: #FFFFFF;
-    position: absolute;
-    right: 2.5%;
+    position: static;
 }
 .canirac__text h3{
     font-size: 1.4em;
@@ -935,7 +916,6 @@ textarea{
 }
 .distintivoH{
     background-color: #808080;
-    display: flex;
     margin-top: 50px;
     height: 150px;
     color: #FFFFFF;
@@ -946,9 +926,8 @@ textarea{
     object-fit: cover;
 }
 .distintivoH p{
-    width: 55%;
-    
-    margin-left: 2.5%;
+    width: 100%;
+    margin-left: 0;
 }
 .distintivoH__texto{
     width: 100%;
@@ -956,9 +935,6 @@ textarea{
     align-items: center;
 }
 #servicio__div{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 60px;
     margin: 0 auto;
     width: 90%;
     margin-bottom: 50px;
@@ -1409,14 +1385,12 @@ textarea{
     }
     .canirac__text{
         margin-left: 10px;
-        position: relative;
         width: 90%;
         align-items: center;
-        right: 0;
         justify-content: center;
         margin: 0 auto;
         margin-top: 20px;
-    } 
+    }
     .distintivoH{
         display: none;
     }
