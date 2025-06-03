@@ -9,11 +9,22 @@ body {
     
 }
 
-.navbar {
-    height: 80px;
-    position: fixed;
+header {
+    height: 150px;
     width: 100%;
-    z-index: 1000;
+    display: flex;
+    text-align: center;
+    position: fixed;
+    
+    z-index: 1000; /* Ajusta el valor del z-index según sea necesario */
+}
+header .links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin-bottom: 25px;
 }
 html{
     scroll-behavior:smooth;
@@ -22,7 +33,7 @@ html{
 section{
     scroll-margin-top: 10ex;
 }
- .navbar-brand img {
+header .logo img {
     position: absolute;
     margin-top: 15px;
     /* padding-left: 50px; */
@@ -34,7 +45,7 @@ section{
 
 }
 
-.navbar a {
+header a {
     text-decoration: none;
     color: #FFFFFF;
 }
@@ -65,17 +76,17 @@ ul {
     padding: 0;
 }
 
-.navbar-nav a {
+header .links a {
     margin: 15px;
 }
 
-nav.navbar a {
+header a {
     text-decoration: none;
     color: #FFFFFF;
     position: relative;
 }
 
-.navbar-nav a::before {
+header .links a::before {
     content: "";
     position: absolute;
     width: 0;
@@ -89,7 +100,7 @@ nav.navbar a {
     bottom: -8px;
 }
 
-.navbar-nav a:hover::before {
+header .links a:hover::before {
     width: 80%;
     opacity: 1;
 }
@@ -135,7 +146,7 @@ nav.navbar a {
 
 /* Estilos adicionales para la animación */
 
-.navbar.scrolled {
+header.scrolled {
     background-color:rgb(0, 0, 0) ;
     background-image: url();
     background-size: cover;
@@ -144,19 +155,19 @@ nav.navbar a {
     /* border-bottom: #545454 2px solid; */
 }
 
-.navbar-brand img.small {
+.logo img.small {
     width: 60px; /* Modifica el tamaño del logo al hacer scroll */
     transition: width 0.3s; /* Agrega transiciones suaves */
 
 }
 
-.navbar-nav.up {
+.links.up {
     transform: translateY(10px);
      /* Sube ligeramente los enlaces al hacer scroll */
     transition: transform 0.3s; /* Agrega transiciones suaves */
     text-shadow: #545454 2px 2px 2px;
 }
-.navbar-brand img.small {
+.logo img.small {
     width: 60px;
     /* Ajusta los valores según tus preferencias */
 }
@@ -1038,18 +1049,18 @@ textarea{
         max-width: 100%;
         /* overflow: hidden; */
     }
-    .navbar{
+    header{
         max-width: 100%;
         }
-    .navbar-nav{
+    header .links{
         display: none;
     }
-    .navbar-brand {
+    header .logo {
         display: flex;
         /* justify-content: center; */
         margin-left: 25%;
     }
-    .navbar.scrolled{
+    header.scrolled{
         padding: 0;
         margin: 0;
         transition: none;
@@ -1058,11 +1069,11 @@ textarea{
         height: 100px;
         /* display: none; */
     }
-    .navbar-brand img{
+    header .logo img{
         width: 100%;
-
+        
     }
-    .navbar-brand img.small {
+    .logo img.small {
         width: 100px;
     }
     .text{
@@ -1095,7 +1106,7 @@ textarea{
     
     }
 
-    .navbar-brand img {
+    header .logo img {
         width: 100px;
     }
     .nom{

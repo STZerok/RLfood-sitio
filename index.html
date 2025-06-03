@@ -10,7 +10,6 @@
     <meta property="og:url" content="https://rlfoodss.com/">
     <meta property="og:type" content="website">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/RLLogo.png" type="img/RL Food-Icono">
     <title>RL Foods - Comedores Industriales para Maquilas en Tijuana</title>
@@ -25,28 +24,25 @@
     
     <div>    
         <div class="contenedor_header">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container">
-                    <a class="navbar-brand" href="index.html"><img src="img/RLLogo.png" alt="RLLogo RL foodservice, RL foodservice solutions"></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="#NosotrosID">NOSOTROS</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#ServiciosID">SERVICIOS</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#ExperienciaID">EXPERIENCIA</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#ContactoID">CONTACTO</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#ClientesID">CLIENTES</a></li>
-                        </ul>
-                    </div>
+            <header>
+                <div class="logo">
+                    <a href="index.html"><img src="img/RLLogo.png" alt="RLLogo, RL foodservice, RL foodservice solutions "></a>
                 </div>
-            </nav>
+                <div class="links">
+                    <ul>
+                        <a href="#NosotrosID">NOSOTROS</a>
+                        <a href="#ServiciosID">SERVICIOS</a>
+                        <a href="#ExperienciaID">EXPERIENCIA</a>
+                        <a href="#ContactoID">CONTACTO</a>
+                        <a href="#ClientesID">CLIENTES</a>
+                    </ul>
+                </div>
+            </header>
             <div class="text"><h1>COMEDORES INDUSTRIALES</h1></div>
         </div>
 
         <!-- <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.05,40.84 C200.11,-28.05 366.59,136.31 502.03,61.51 L515.01,-17.22 L0.00,-0.00 Z" style="stroke: none; fill: #92b730;"></path></svg></div> -->
-        <section class="nosotros_contenedor container" id="NosotrosID">
+        <section class="nosotros_contenedor" id="NosotrosID">
             <div class="texto_nosotros">
                 <h2>Nosotros</h2>
                 <p class="nosotros__p">Somos una Empresa 100% Mexicana con más 9 años de experiencia en la elaboración de alimentos, nos especializamos en servicio,
@@ -114,7 +110,7 @@
          </div>
        </div>
        <!-- <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.85 C70.87,101.87 271.37,-49.85 500.00,49.85 L500.00,-0.00 L0.00,-0.00 Z" style="stroke: none; fill: #92b730;"></path></svg></div> -->
-        <section class="operacion container" id="ServiciosID">
+        <section class="operacion" id="ServiciosID">
             <h2>Servicios que ofrecemos</h2>
                 <div id="servicio__div">
                     <div class="caja_servicio">
@@ -183,13 +179,13 @@
                 </div>
         </section>
        
-       <section class="estructura container">
+       <section class="estructura">
             <h2>ESTRUCTURA ORGANIZACIONAL</h2>
             <div class="imagen">
                 <img src="img/Untitled.jpg" alt="estructura organizacional rl">
             </div>
        </section>
-       <section class="normativa container">
+       <section class="normativa">
         <h2>NORMATIVA</h2>
         <div class="repse">
             <img class="repse__img" src="img/image 11.svg" alt="repse imagen">
@@ -268,7 +264,7 @@
             </div>            
         </div>
        </section>
-       <section class="oferta container">
+       <section class="oferta">
         <h2>OFERTA DE VALOR</h2>
         <div class="oferta__lista">
             <img src="img/image 17.svg" alt="icono tilde">
@@ -293,7 +289,7 @@
        <div class="titulo">
         <h2>Garantias</h2>
         </div>
-       <section class="garantias container">
+       <section class="garantias">
         
         <div class="servicio">
             <h3>Servicio</h3>
@@ -343,10 +339,10 @@
             </div>
        </section> -->
        
-       <section id="ContactoID" class="container">
+       <section id="ContactoID">
         <h2 class="body__contacto">Contacto</h2>
        </section>
-       <section class="section_opciones container">
+       <section class="section_opciones">
         <div class="contenedor-opciones">
             <h1>Selecciona lo que necesites</h1>
             <div class="opciones">
@@ -358,77 +354,77 @@
                 <div class="cotizacion-div">
                     <form class="cotizacion" action="">
                         <label for="nombreEmpresa">Nombre de la empresa</label>
-                        <input class="form-control" type="text" id="nombreEmpresa">
+                        <input type="text" id="nombreEmpresa">
                         
                         <label for="contactoCotizacion">Contacto</label>
-                        <input class="form-control" type="text" id="contactoCotizacion">
+                        <input type="text" id="contactoCotizacion">
                         
                         <label for="telefonoCotizacion">Telefono</label>
-                        <input class="form-control" type="text" id="telefonoCotizacion">
+                        <input type="text" id="telefonoCotizacion">
                         
                         <label for="emailCotizacion">Email</label>
-                        <input class="form-control" type="text" id="emailCotizacion">
+                        <input type="text" id="emailCotizacion">
                         
                         <label for="subsidio">¿Existe subsidio?</label>
-                        <input class="form-control" type="text" id="subsidio">
+                        <input type="text" id="subsidio">
                         
                         <label for="cocinaSalon">¿Cuenta su empresa con cocina equipada Y equipo de refrigeración?</label>
-                        <input class="form-control" type="text" id="cocinaSalon">
+                        <input type="text" id="cocinaSalon">
                         
                         <label for="comensalesDiarios">¿Cuántos comensales comerían diariamente?</label>
-                        <input class="form-control" type="text" id="comensalesDiarios">
+                        <input type="text" id="comensalesDiarios">
                         
                         <label for="comensalesMensuales">¿Cuántos comensales al mes?</label>
-                        <input class="form-control" type="text" id="comensalesMensuales">
+                        <input type="text" id="comensalesMensuales">
                         
-                        <!-- <input class="btn btn-primary" type="submit" value="Enviar"> -->
-                        <button class="btn btn-primary" type="submit">Enviar</button>
+                        <!-- <input class="btn2" type="submit" value="Enviar"> -->
+                        <button class="btn2" type="submit">Enviar</button>
                     </form>
                 </div>
                 <div class="empleo">
                     <form class="cotizacion" action="">
                         <label for="nombreEmpleo">Nombre</label>
-                        <input class="form-control" type="text" id="nombreEmpleo">
+                        <input type="text" id="nombreEmpleo">
                         
                         <label for="emailEmpleo">Email</label>
-                        <input class="form-control" type="text" id="emailEmpleo">
+                        <input type="text" id="emailEmpleo">
                         
                         <label for="domicilio">domicilio</label>
-                        <input class="form-control" type="text" id="domicilio">
+                        <input type="text" id="domicilio">
                         
                         <label for="vacanteinteres">¿cual es tu vacante de interes?</label>
-                        <input class="form-control" type="text" id="vacanteinteres">
+                        <input type="text" id="vacanteinteres">
                         
                         
                         <label for="telefonoEmpleo">Telefono</label>
-                        <input class="form-control" type="text" id="telefonoEmpleo">
+                        <input type="text" id="telefonoEmpleo">
                         
                         <label for="mensajeEmpleo">Mensaje</label>
-                        <textarea class="form-control" name="mensajeEmpleo" id="mensajeEmpleo" cols="30" rows="10"></textarea>            
-                        <!-- <input class="btn btn-primary" type="submit" value="Enviar"> -->
-                        <button class="btn btn-primary" type="submit">Enviar</button>
+                        <textarea name="mensajeEmpleo" id="mensajeEmpleo" cols="30" rows="10"></textarea>            
+                        <!-- <input class="btn2" type="submit" value="Enviar"> -->
+                        <button class="btn2" type="submit">Enviar</button>
                     </form>
                 </div>
                 <div class="proveedor">
                     <form class="cotizacion" action="">
                         <label for="nombreProveedor">Nombre</label>
-                        <input class="form-control" type="text" id="nombreProveedor">
+                        <input type="text" id="nombreProveedor">
                         
                         <label for="emailProveedor">Email</label>
-                        <input class="form-control" type="text" id="emailProveedor">
+                        <input type="text" id="emailProveedor">
                         
                         <label for="distribucion">¿Tienen distribucion nacional?</label>
-                        <input class="form-control" type="text" id="distribucion">
+                        <input type="text" id="distribucion">
                         
                         <label for="giro">Giro</label>
-                        <input class="form-control" type="text" id="giro">
+                        <input type="text" id="giro">
                         
                         <label for="asuntoProveedor">Asunto</label>
-                        <input class="form-control" type="text" id="asuntoProveedor">     
+                        <input type="text" id="asuntoProveedor">     
                         <label for="mensajeProveedor">Mensaje</label>
-                        <textarea class="form-control" name="mensajeProveedor" id="mensajeProveedor" cols="30" rows="10"></textarea>               
-                        <!-- <input class="btn btn-primary" type="submit" value="Enviar"> -->
-                        <button class="btn btn-primary" type="submit">Enviar</button>
+                        <textarea name="mensajeProveedor" id="mensajeProveedor" cols="30" rows="10"></textarea>               
+                        <!-- <input class="btn2" type="submit" value="Enviar"> -->
+                        <button class="btn2" type="submit">Enviar</button>
                     </form>
                 </div>
             </div>
@@ -436,17 +432,17 @@
        </section>
     
     
-       <section class="contacto container">
+       <section class="contacto">
         <form action="">
          <h2>Dejanos tu consulta!</h2>
          <div class="input-group">
              <label for="name">Nombre</label>
-             <input class="form-control" type="text" name="name" id="name">
+             <input type="text" name="name" id="name">
              <label for="email">Email</label>
-             <input class="form-control" type="email" name="email" id="email">    
+             <input type="email" name="email" id="email">    
              <label for="message">Mensaje</label>
-             <textarea class="form-control" name="message" id="message" cols="30" rows="5" ></textarea>
-             <input class="btn btn-primary" type="submit" value="Enviar">
+             <textarea name="message" id="message" cols="30" rows="5" ></textarea>
+             <input class="btn" type="submit" value="Enviar">
          </div>
         </form>
        </section>
@@ -467,7 +463,6 @@
     </footer>
     
     
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="script.js"></script>
 </div>
     
