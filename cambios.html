@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RL Foods — Comedores Industriales · Tijuana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+/* ─── BRAND PALETTE ─── */
+:root {
+  --red:      #E8431C;   /* RL letters */
+  --orange:   #F5A623;   /* dome / bandeja */
+  --green:    #7DC242;   /* chef hat + bar */
+  --green-dk: #5A9930;   /* darker green for text */
+  --gray:     #5E5E5E;   /* text logo */
+ 
+  --ink:      #1C1C1A;   /* near-black for body */
+  --ink2:     #3A3A38;
+  --muted:    #888885;
+  --surface:  #F8F7F4;   /* warm off-white */
+  --surface2: #EFEDE8;
+  --white:    #FFFFFF;
+  --border:   rgba(0,0,0,0.07);
+ 
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+ 
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+ 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+ 
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: var(--green); }
+ 
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 100px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%;
+  transition: background 0.35s var(--ease), box-shadow 0.35s;
+}
+nav.solid {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.nav-logomark {
+  display: flex; align-items: center;
+  flex-shrink: 0;
+}
+.nav-logomark img {
+  height: 100px;
+  width: auto;
+  display: block;
+}
+.nav-wordmark strong {
+  display: block; font-size: 14px; font-weight: 600;
+  color: var(--ink); line-height: 1.1;
+}
+.nav-wordmark span {
+  font-size: 10px; color: var(--muted);
+  letter-spacing: 1px; text-transform: uppercase;
+}
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a {
+  text-decoration: none; font-size: 13px; font-weight: 500;
+  color: var(--ink2);
+  position: relative; padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 1.5px; background: var(--green);
+  transition: width 0.25s var(--ease);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { width: 100%; }
+.nav-btn {
+  padding: 9px 20px; border-radius: 7px;
+  background: var(--red); color: #fff !important;
+  font-weight: 600 !important; font-size: 13px !important;
+  transition: background 0.2s, transform 0.15s !important;
+  box-shadow: 0 2px 12px rgba(232,67,28,0.3);
+}
+.nav-btn::after { display: none !important; }
+.nav-btn:hover { background: #cc3b18 !important; transform: translateY(-1px); }
+ 
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  padding-top: 100px;
+  background: var(--surface);
+  position: relative; overflow: hidden;
+}
+/* decorative angled split */
+.hero::after {
+  content: '';
+  position: absolute; right: 48%; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(to bottom, transparent 10%, var(--green) 40%, var(--orange) 70%, transparent);
+  opacity: 0.4;
+}
+/* top accent line */
+.hero::before {
+  content: '';
+  position: absolute; top: 100px; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--green), var(--orange), var(--red));
+}
+ 
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 6% 80px 8%;
+  position: relative; z-index: 1;
+}
+ 
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 28px;
+  font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--green-dk);
+  animation: fadeUp 0.7s 0.1s both;
+}
+.hero-eyebrow-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); animation: blink 2.4s infinite;
+}
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(58px, 7vw, 96px);
+  line-height: 0.93; letter-spacing: 1.5px;
+  color: var(--ink); margin-bottom: 24px;
+  animation: fadeUp 0.7s 0.2s both;
+}
+.hero-h1 .accent-red  { color: var(--red); }
+.hero-h1 .accent-grn  { color: var(--green); }
+ 
+.hero-desc {
+  font-size: 16px; line-height: 1.75; color: var(--muted);
+  max-width: 420px; margin-bottom: 40px; font-weight: 300;
+  animation: fadeUp 0.7s 0.3s both;
+}
+ 
+.hero-actions {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  animation: fadeUp 0.7s 0.4s both;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 8px;
+  background: var(--red); color: #fff;
+  font-weight: 600; font-size: 14px; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(232,67,28,0.3);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn-primary:hover { background: #cc3b18; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,67,28,0.38); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px; border-radius: 8px;
+  border: 1.5px solid var(--border); color: var(--ink2);
+  font-weight: 500; font-size: 14px; text-decoration: none;
+  background: var(--white);
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: var(--green); background: #f0f7ea; }
+ 
+.hero-stats {
+  display: flex; gap: 0; margin-top: 56px;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.7s 0.5s both;
+}
+.hero-stat {
+  flex: 1; padding: 22px 0; padding-right: 24px;
+  border-right: 1px solid var(--border);
+}
+.hero-stat:last-child { border-right: none; padding-right: 0; padding-left: 24px; padding-right: 0; }
+.hero-stat:not(:first-child) { padding-left: 24px; }
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 40px; line-height: 1; color: var(--ink);
+}
+.hero-stat-num sup { font-size: 20px; color: var(--red); }
+.hero-stat-lbl { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 0.3px; }
+ 
+.hero-right {
+  position: relative; overflow: hidden;
+  display: flex; align-items: stretch;
+}
+.hero-img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.92) saturate(1.05);
+  animation: zoomIn 1.4s 0s both;
+}
+/* color overlay tint matching brand */
+.hero-right::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(135deg,
+    rgba(232,67,28,0.06) 0%,
+    rgba(125,194,66,0.05) 100%);
+}
+/* vertical green bar left edge */
+.hero-right::after {
+  content: ''; position: absolute; left: 0; top: 10%; bottom: 10%;
+  width: 4px; z-index: 2;
+  background: linear-gradient(to bottom, var(--green), var(--orange));
+  border-radius: 2px;
+}
+ 
+/* ═══════════════════════════════════════
+   TRUST STRIP
+═══════════════════════════════════════ */
+.trust {
+  background: var(--ink);
+  padding: 22px 6%;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+  border-top: 3px solid var(--green);
+}
+.trust-item { display: flex; align-items: center; gap: 10px; }
+.trust-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.trust-dot.red    { background: var(--red); }
+.trust-dot.green  { background: var(--green); }
+.trust-dot.orange { background: var(--orange); }
+.trust-item strong { font-size: 12px; color: #fff; font-weight: 600; }
+.trust-item span { font-size: 11px; color: rgba(255,255,255,0.4); }
+.trust-sep { width: 1px; height: 24px; background: rgba(255,255,255,0.1); }
+ 
+/* ═══════════════════════════════════════
+   SECTION UTILITIES
+═══════════════════════════════════════ */
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--green-dk);
+  margin-bottom: 14px;
+}
+.section-tag::before { content: ''; width: 20px; height: 2px; background: var(--green); }
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 0.95; letter-spacing: 1px;
+  color: var(--ink); margin-bottom: 18px;
+}
+.section-title .r { color: var(--red); }
+.section-title .g { color: var(--green); }
+.section-body {
+  font-size: 15px; line-height: 1.8; color: var(--muted);
+  font-weight: 300; max-width: 500px;
+}
+ 
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+.reveal.in { opacity: 1; transform: none; }
+ 
+/* ═══════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════ */
+.about {
+  padding: 110px 8%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 90px;
+  align-items: center; background: var(--white);
+}
+.about-img-wrap { position: relative; }
+.about-img {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+/* green accent top-left */
+.about-img-wrap::before {
+  content: ''; position: absolute; top: -14px; left: -14px;
+  width: 56px; height: 56px;
+  border-top: 3px solid var(--green); border-left: 3px solid var(--green);
+  border-radius: 2px 0 0 0;
+}
+/* orange accent bottom-right */
+.about-img-wrap::after {
+  content: ''; position: absolute; bottom: -14px; right: -14px;
+  width: 56px; height: 56px;
+  border-bottom: 3px solid var(--orange); border-right: 3px solid var(--orange);
+  border-radius: 0 0 2px 0;
+}
+.about-badge {
+  position: absolute; bottom: 24px; left: -28px;
+  background: var(--red); color: #fff;
+  padding: 16px 20px; border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(232,67,28,0.3);
+  text-align: center;
+}
+.about-badge-num {
+  font-family: var(--font-display); font-size: 48px; line-height: 1; color: #fff;
+}
+.about-badge-lbl { font-size: 10px; opacity: 0.8; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+ 
+.about-values {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px;
+}
+.about-val {
+  padding: 18px 20px; border-radius: 6px;
+  background: var(--surface); border: 1px solid var(--surface2);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.about-val:hover { border-color: var(--green); transform: translateY(-2px); }
+.about-val-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.about-val-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.about-val h4 { font-size: 13px; font-weight: 600; color: var(--ink); }
+.about-val p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+ 
+/* ═══════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════ */
+.services { padding: 110px 8%; background: var(--surface); }
+.services-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 56px; flex-wrap: wrap; gap: 20px;
+}
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+}
+.svc {
+  background: var(--white);
+  padding: 36px 30px;
+  position: relative; overflow: hidden;
+  cursor: default;
+  transition: background 0.25s;
+}
+.svc::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+.svc:nth-child(1)::after, .svc:nth-child(4)::after { background: var(--red); }
+.svc:nth-child(2)::after, .svc:nth-child(5)::after { background: var(--green); }
+.svc:nth-child(3)::after, .svc:nth-child(6)::after { background: var(--orange); }
+.svc:hover { background: #fafaf8; }
+.svc:hover::after { transform: scaleX(1); }
+.svc-n {
+  font-family: var(--font-display); font-size: 52px; letter-spacing: 1px;
+  line-height: 1; color: var(--surface2); margin-bottom: 14px;
+  transition: color 0.25s;
+}
+.svc:hover .svc-n { color: var(--surface); }
+.svc-icon {
+  width: 42px; height: 42px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 18px;
+}
+.svc:nth-child(1) .svc-icon, .svc:nth-child(4) .svc-icon { background: rgba(232,67,28,0.08); }
+.svc:nth-child(2) .svc-icon, .svc:nth-child(5) .svc-icon { background: rgba(125,194,66,0.10); }
+.svc:nth-child(3) .svc-icon, .svc:nth-child(6) .svc-icon { background: rgba(245,166,35,0.10); }
+.svc h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+.svc p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+ 
+/* ═══════════════════════════════════════
+   PILLARS STRIP
+═══════════════════════════════════════ */
+.pillars {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  background: var(--ink);
+}
+.pillar {
+  padding: 40px 24px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.2s;
+  position: relative;
+}
+.pillar::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  opacity: 0; transition: opacity 0.25s;
+}
+.pillar:nth-child(1)::after, .pillar:nth-child(4)::after { background: var(--red); }
+.pillar:nth-child(2)::after, .pillar:nth-child(5)::after { background: var(--green); }
+.pillar:nth-child(3)::after, .pillar:nth-child(6)::after { background: var(--orange); }
+.pillar:hover { background: rgba(255,255,255,0.03); }
+.pillar:hover::after { opacity: 1; }
+.pillar:last-child { border-right: none; }
+.pillar-icon { font-size: 26px; margin-bottom: 12px; display: block; }
+.pillar span { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 400; line-height: 1.5; display: block; }
+ 
+/* ═══════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════ */
+.process { padding: 110px 8%; background: var(--white); }
+.process-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+  margin-top: 60px; position: relative;
+}
+/* connecting line */
+.process-steps::before {
+  content: ''; position: absolute;
+  top: 30px; left: calc(12.5% + 8px); right: calc(12.5% + 8px);
+  height: 1px;
+  background: linear-gradient(to right, var(--green), var(--orange), var(--red));
+  z-index: 0;
+}
+.step { padding: 0 20px; text-align: center; }
+.step-num {
+  width: 60px; height: 60px; border-radius: 50%;
+  border: 2px solid var(--surface2);
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 26px;
+  margin: 0 auto 28px; position: relative; z-index: 1;
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
+}
+.step:nth-child(1) .step-num:hover, .step:nth-child(1):hover .step-num { border-color: var(--green); background: var(--green); color: #fff; }
+.step:nth-child(2) .step-num:hover, .step:nth-child(2):hover .step-num { border-color: var(--orange); background: var(--orange); color: #fff; }
+.step:nth-child(3) .step-num:hover, .step:nth-child(3):hover .step-num { border-color: var(--red); background: var(--red); color: #fff; }
+.step:nth-child(4) .step-num:hover, .step:nth-child(4):hover .step-num { border-color: var(--green); background: var(--green); color: #fff; }
+.step:nth-child(1) .step-num { color: var(--green-dk); }
+.step:nth-child(2) .step-num { color: var(--orange); }
+.step:nth-child(3) .step-num { color: var(--red); }
+.step:nth-child(4) .step-num { color: var(--green-dk); }
+.step h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.step p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+ 
+/* ═══════════════════════════════════════
+   GALLERY MARQUEE
+═══════════════════════════════════════ */
+.gallery { padding: 0; overflow: hidden; background: var(--surface); }
+.gallery-header { padding: 70px 8% 40px; }
+.marquee-wrap { overflow: hidden; }
+.marquee-track {
+  display: flex; gap: 12px;
+  animation: slide 28s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.gallery-card {
+  width: 260px; height: 180px; flex-shrink: 0;
+  border-radius: 6px; overflow: hidden; position: relative;
+}
+.gallery-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s var(--ease), filter 0.5s;
+  filter: saturate(0.85) brightness(0.9);
+}
+.gallery-card:hover img { transform: scale(1.06); filter: saturate(1.1) brightness(1); }
+.gallery-card-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 10px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: #fff; font-size: 11px; font-weight: 500;
+  opacity: 0; transition: opacity 0.3s;
+}
+.gallery-card:hover .gallery-card-label { opacity: 1; }
+ 
+/* ═══════════════════════════════════════
+   CERTIFICATIONS
+═══════════════════════════════════════ */
+.certs { padding: 80px 8%; background: var(--white); }
+.certs-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 50px;
+}
+.cert {
+  padding: 36px 28px;
+  background: var(--surface); border-radius: 4px;
+  border: 1px solid var(--surface2);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.cert:nth-child(1):hover { border-color: var(--green); }
+.cert:nth-child(2):hover { border-color: var(--orange); }
+.cert:nth-child(3):hover { border-color: var(--red); }
+.cert:hover { transform: translateY(-3px); }
+.cert-icon {
+  width: 48px; height: 48px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin-bottom: 18px;
+}
+.cert:nth-child(1) .cert-icon { background: rgba(125,194,66,0.12); }
+.cert:nth-child(2) .cert-icon { background: rgba(245,166,35,0.12); }
+.cert:nth-child(3) .cert-icon { background: rgba(232,67,28,0.10); }
+.cert h3 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.cert p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+ 
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+.contact {
+  padding: 110px 8%;
+  background: var(--surface);
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start;
+}
+.contact-left .section-body { margin-bottom: 40px; }
+.contact-cards { display: flex; flex-direction: column; gap: 12px; }
+.contact-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 20px; border-radius: 6px;
+  background: var(--white); border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+.contact-card:hover { border-color: var(--green); }
+.contact-card-icon {
+  width: 38px; height: 38px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; font-size: 17px;
+  flex-shrink: 0;
+}
+.contact-card:nth-child(1) .contact-card-icon { background: rgba(125,194,66,0.1); }
+.contact-card:nth-child(2) .contact-card-icon { background: rgba(232,67,28,0.08); }
+.contact-card:nth-child(3) .contact-card-icon { background: rgba(245,166,35,0.1); }
+.contact-card strong { font-size: 12px; color: var(--muted); display: block; margin-bottom: 2px; font-weight: 500; letter-spacing: 0.3px; }
+.contact-card span { font-size: 14px; font-weight: 500; color: var(--ink); }
+ 
+/* FORM */
+.form-box {
+  background: var(--white); border-radius: 10px; padding: 44px 40px;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 56px rgba(0,0,0,0.06);
+}
+.form-tabs { display: flex; gap: 0; background: var(--surface2); border-radius: 7px; padding: 4px; margin-bottom: 32px; }
+.ftab {
+  flex: 1; text-align: center; padding: 9px 8px;
+  border-radius: 5px; font-size: 12px; font-weight: 500;
+  color: var(--muted); cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.ftab.on { background: var(--white); color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+.fbody { display: none; }
+.fbody.on { display: block; }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fg { margin-bottom: 14px; }
+.fg label {
+  display: block; font-size: 11px; font-weight: 600;
+  color: var(--gray); letter-spacing: 0.8px; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.fg input, .fg select, .fg textarea {
+  width: 100%; padding: 11px 14px;
+  border: 1.5px solid var(--surface2); border-radius: 6px;
+  font-family: var(--font-body); font-size: 14px; color: var(--ink);
+  background: var(--surface); outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: var(--green); background: var(--white);
+}
+.fg textarea { min-height: 90px; resize: vertical; }
+.fsubmit {
+  width: 100%; padding: 15px; margin-top: 6px;
+  border: none; border-radius: 8px; cursor: pointer;
+  font-family: var(--font-body); font-size: 14px; font-weight: 700;
+  color: #fff; letter-spacing: 0.3px;
+  background: var(--red);
+  box-shadow: 0 4px 20px rgba(232,67,28,0.28);
+  transition: background 0.2s, transform 0.15s;
+}
+.fsubmit:hover { background: #cc3b18; transform: translateY(-1px); }
+.fsubmit.sent { background: var(--green); box-shadow: none; }
+ 
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  background: var(--ink);
+  padding: 64px 8% 32px;
+  border-top: 3px solid var(--red);
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+  margin-bottom: 48px;
+}
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.75; margin-top: 14px; max-width: 270px; }
+.footer-col h5 { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.85); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.38); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: rgba(255,255,255,0.8); }
+.footer-bottom {
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.22); }
+.footer-accent { display: flex; gap: 6px; align-items: center; }
+.footer-accent-dot { width: 8px; height: 8px; border-radius: 50%; }
+ 
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(1.06); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+ 
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero::after { display: none; }
+  .hero-left { padding: 60px 6%; }
+  .hero-right { height: 320px; }
+  .about { grid-template-columns: 1fr; gap: 48px; }
+  .about-badge { left: 0; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .pillars { grid-template-columns: repeat(3,1fr); }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .process-steps::before { display: none; }
+  .certs-grid { grid-template-columns: 1fr; gap: 12px; }
+  .contact { grid-template-columns: 1fr; gap: 48px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  nav { height: 80px; }
+  .nav-logomark img { height: 64px; }
+  .hero::before { top: 80px; }
+  .hero { padding-top: 80px; }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: repeat(2,1fr); }
+  .process-steps { grid-template-columns: 1fr; }
+  .frow { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 0; }
+  .hero-stat { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 0; }
+  .trust { flex-direction: column; align-items: flex-start; }
+  .trust-sep { display: none; }
+  .footer-top { grid-template-columns: 1fr; }
+  .form-box { padding: 28px 20px; }
+  .about-values { grid-template-columns: 1fr; }
+  nav { height: 68px; padding: 0 4%; }
+  .nav-logomark img { height: 52px; }
+  .nav-wordmark strong { font-size: 13px; }
+  .nav-wordmark span { display: none; }
+  .hero::before { top: 68px; }
+  .hero { padding-top: 68px; }
+}
+</style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav id="nav">
+  <a href="#inicio" class="nav-logo">
+    <div class="nav-logomark"><img src="img/RLlogo.png" alt=""></div>
+    <div class="nav-wordmark">
+      <strong>RL Foods</strong>
+      <span>Servicios Gastronómicos</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="nav-btn">Cotizar →</a>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Tijuana · Baja California · Maquilas
+    </div>
+    <h1 class="hero-h1">
+      COMEDORES<br>
+      <span class="accent-red">INDUSTRIALES</span><br>
+      <span class="accent-grn">PROFESIONALES</span>
+    </h1>
+    <p class="hero-desc">
+      Alimentamos a los equipos más exigentes de la industria maquiladora con calidad, higiene certificada y sazón casero. Más de 12 años siendo el aliado de plantas y empresas en Tijuana.
+    </p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">Solicitar cotización →</a>
+      <a href="#servicios" class="btn-outline">Ver servicios</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">12<sup>+</sup></div>
+        <div class="hero-stat-lbl">Años en operación</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">6<sup>sem</sup></div>
+        <div class="hero-stat-lbl">Sin repetir menú</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100<sup>%</sup></div>
+        <div class="hero-stat-lbl">Empresa mexicana</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img"
+      src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80"
+      alt="Cocina industrial profesional">
+  </div>
+</section>
+ 
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="trust-item">
+    <span class="trust-dot green"></span>
+    <strong>CANIRAC</strong>
+    <span>Socios activos</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <span class="trust-dot orange"></span>
+    <strong>NOM-251-SSA1</strong>
+    <span>Higiene certificada</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <span class="trust-dot red"></span>
+    <strong>NOM-043-SSA2</strong>
+    <span>Salud alimentaria</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <span class="trust-dot green"></span>
+    <strong>REPSE</strong>
+    <span>SAT · IMSS · INFONAVIT</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <span class="trust-dot orange"></span>
+    <strong>NOM-035</strong>
+    <span>Entorno organizacional</span>
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <span class="trust-dot red"></span>
+    <strong>Nutriólogo certificado</strong>
+    <span>Menús balanceados</span>
+  </div>
+</div>
+ 
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="about-img-wrap reveal">
+    <img class="about-img"
+      src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=700&q=80"
+      alt="Chef profesional preparando alimentos">
+    <div class="about-badge">
+      <div class="about-badge-num">12</div>
+      <div class="about-badge-lbl">Años de confianza</div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="section-tag">Nosotros</div>
+    <h2 class="section-title">EL ALIADO<br>ESTRATÉGICO<br>DE TU <span class="g">PLANTA</span></h2>
+    <p class="section-body">
+      Somos una empresa 100% mexicana con más de 12 años especializados en comedores industriales para maquilas, fábricas e instituciones educativas en Tijuana. Nuestro equipo — nutriólogo, chefs y personal capacitado — garantiza alimentos nutritivos, variados y bajo los más estrictos controles de salubridad.
+    </p>
+    <div class="about-values">
+      <div class="about-val">
+        <div class="about-val-top">
+          <div class="about-val-dot" style="background:var(--red)"></div>
+          <h4>Misión</h4>
+        </div>
+        <p>Alimentos de alta calidad, variados y seguros que mejoran la productividad de tu equipo.</p>
+      </div>
+      <div class="about-val">
+        <div class="about-val-top">
+          <div class="about-val-dot" style="background:var(--green)"></div>
+          <h4>Visión</h4>
+        </div>
+        <p>Ser la empresa líder en servicio de alimentos industriales en el noroeste de México.</p>
+      </div>
+      <div class="about-val">
+        <div class="about-val-top">
+          <div class="about-val-dot" style="background:var(--orange)"></div>
+          <h4>Calidad</h4>
+        </div>
+        <p>Materia prima fresca, procesos auditados y presentación impecable en cada servicio.</p>
+      </div>
+      <div class="about-val">
+        <div class="about-val-top">
+          <div class="about-val-dot" style="background:var(--green)"></div>
+          <h4>Continuidad</h4>
+        </div>
+        <p>Servicio ininterrumpido adaptado a los turnos y horarios de tu planta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-tag">Servicios</div>
+      <h2 class="section-title">TODO LO QUE<br>TU EMPRESA<br><span class="r">NECESITA</span></h2>
+    </div>
+    <p class="section-body" style="max-width:300px;font-size:14px;">
+      Desde el comedor diario hasta eventos especiales, cubrimos cada necesidad alimentaria de tu operación.
+    </p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="svc">
+      <div class="svc-n">01</div>
+      <div class="svc-icon">🍲</div>
+      <h3>Comedor Industrial</h3>
+      <p>Desayuno, comida y cena con menús rotativos que no se repiten en 6 semanas. Platillos mexicanos caseros y nutritivos.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-n">02</div>
+      <div class="svc-icon">⚡</div>
+      <h3>Servicio Exprés</h3>
+      <p>Operación ágil diseñada para respetar los tiempos de descanso de tu personal sin afectar la productividad.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-n">03</div>
+      <div class="svc-icon">🥗</div>
+      <h3>Opciones Saludables</h3>
+      <p>Ensaladas, sándwiches y aguas de fruta natural. Sin saborizantes artificiales. Asesoría de nutriólogo certificado.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-n">04</div>
+      <div class="svc-icon">🛒</div>
+      <h3>Snack & Tienda</h3>
+      <p>Venta o canje de botanas, refrescos, yogurt, jugos, bebidas hidratantes y amplia variedad de productos.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-n">05</div>
+      <div class="svc-icon">☕</div>
+      <h3>Coffee Break</h3>
+      <p>Servicio de coffee break para reuniones, capacitaciones y juntas directivas con presentación profesional.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-n">06</div>
+      <div class="svc-icon">🎉</div>
+      <h3>Eventos Especiales</h3>
+      <p>Menús premium para aniversarios, días festivos y celebraciones corporativas con mayor variedad y montaje especial.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- PILLARS STRIP -->
+<div class="pillars">
+  <div class="pillar">
+    <span class="pillar-icon">😊</span>
+    <span>Satisfacción de comensales</span>
+  </div>
+  <div class="pillar">
+    <span class="pillar-icon">🧼</span>
+    <span>Calidad e higiene</span>
+  </div>
+  <div class="pillar">
+    <span class="pillar-icon">⚡</span>
+    <span>Rapidez</span>
+  </div>
+  <div class="pillar">
+    <span class="pillar-icon">🤝</span>
+    <span>Confiabilidad</span>
+  </div>
+  <div class="pillar">
+    <span class="pillar-icon">🔧</span>
+    <span>Flexibilidad</span>
+  </div>
+  <div class="pillar">
+    <span class="pillar-icon">💡</span>
+    <span>Innovación</span>
+  </div>
+</div>
+ 
+<!-- PROCESS -->
+<section class="process" id="proceso">
+  <div class="reveal">
+    <div class="section-tag">Cómo trabajamos</div>
+    <h2 class="section-title">SIMPLE Y<br>SIN <span class="g">COMPLICACIONES</span></h2>
+    <p class="section-body">Desde el primer contacto hasta la operación diaria, nuestro proceso es ágil, transparente y adaptado a tus tiempos.</p>
+  </div>
+  <div class="process-steps reveal">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Diagnóstico</h4>
+      <p>Analizamos tus necesidades: comensales, turnos, instalaciones y presupuesto.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Propuesta</h4>
+      <p>Diseñamos menú y plan de servicio personalizado con nuestro nutriólogo.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Implementación</h4>
+      <p>Montamos la operación en tu planta y arrancamos con supervisión directa.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Seguimiento</h4>
+      <p>Monitoreo continuo, encuestas de satisfacción y mejora constante del servicio.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-tag">Nuestro trabajo</div>
+    <h2 class="section-title">CALIDAD QUE<br>SE <span class="r">VE</span></h2>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=520&q=75" alt="Platillo"><div class="gallery-card-label">Menú del día</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=520&q=75" alt="Comedor"><div class="gallery-card-label">Comedor industrial</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=520&q=75" alt="Cocina"><div class="gallery-card-label">Cocina profesional</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=520&q=75" alt="Platillos"><div class="gallery-card-label">Variedad de platillos</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=520&q=75" alt="Higiene"><div class="gallery-card-label">Control de calidad</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=520&q=75" alt="Equipo"><div class="gallery-card-label">Nuestro equipo</div></div>
+      <!-- dupe for seamless loop -->
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=520&q=75" alt="Platillo"><div class="gallery-card-label">Menú del día</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=520&q=75" alt="Comedor"><div class="gallery-card-label">Comedor industrial</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=520&q=75" alt="Cocina"><div class="gallery-card-label">Cocina profesional</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=520&q=75" alt="Platillos"><div class="gallery-card-label">Variedad de platillos</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=520&q=75" alt="Higiene"><div class="gallery-card-label">Control de calidad</div></div>
+      <div class="gallery-card"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=520&q=75" alt="Equipo"><div class="gallery-card-label">Nuestro equipo</div></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- CERTS -->
+<section class="certs" id="certificaciones">
+  <div class="reveal">
+    <div class="section-tag">Certificaciones</div>
+    <h2 class="section-title">RESPALDO Y<br><span class="g">CONFIANZA</span></h2>
+  </div>
+  <div class="certs-grid reveal">
+    <div class="cert">
+      <div class="cert-icon">🏆</div>
+      <h3>CANIRAC</h3>
+      <p>Socios activos de la Cámara Nacional de la Industria de Restaurantes y Alimentos Condimentados. Personal certificado en manejo higiénico de alimentos.</p>
+    </div>
+    <div class="cert">
+      <div class="cert-icon">📜</div>
+      <h3>Distintivo H · NOM</h3>
+      <p>Cumplimos NOM-251-SSA1-2009 y NOM-043-SSA2-2012. Prácticas de higiene y salud alimentaria certificadas por autoridades mexicanas.</p>
+    </div>
+    <div class="cert">
+      <div class="cert-icon">🛡️</div>
+      <h3>REPSE · NOM-035</h3>
+      <p>Pago de impuestos y aportaciones ante SAT, IMSS e INFONAVIT en tiempo y forma. Entorno organizacional favorable certificado.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="contact-left reveal">
+    <div class="section-tag">Contacto</div>
+    <h2 class="section-title">HABLEMOS<br>DE TU<br><span class="r">PROYECTO</span></h2>
+    <p class="section-body">Cuéntanos las necesidades de tu planta y te enviamos una propuesta personalizada en menos de 24 horas.</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-card-icon">📞</div>
+        <div>
+          <strong>Teléfonos directos</strong>
+          <span>664 856 4040 · 664 123 6691</span>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">👤</div>
+        <div>
+          <strong>Director Comercial</strong>
+          <span>C.P. José Luis Estrada Cervantes</span>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">📍</div>
+        <div>
+          <strong>Área de servicio</strong>
+          <span>Tijuana · Baja California · México</span>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="form-box reveal">
+    <div class="form-tabs">
+      <div class="ftab on" onclick="tab('cot',this)">Cotización</div>
+      <div class="ftab" onclick="tab('emp',this)">Empleo</div>
+      <div class="ftab" onclick="tab('pro',this)">Proveedor</div>
+    </div>
+ 
+    <div class="fbody on" id="f-cot">
+      <div class="frow">
+        <div class="fg"><label>Empresa</label><input type="text" placeholder="Nombre de la empresa"></div>
+        <div class="fg"><label>Contacto</label><input type="text" placeholder="Tu nombre"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Teléfono</label><input type="tel" placeholder="664 xxx xxxx"></div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="correo@empresa.com"></div>
+      </div>
+      <div class="fg">
+        <label>Comensales diarios</label>
+        <select>
+          <option value="">Selecciona un rango</option>
+          <option>Menos de 50</option>
+          <option>50 – 150</option>
+          <option>150 – 400</option>
+          <option>Más de 400</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>¿Cuentan con cocina equipada?</label>
+        <select>
+          <option value="">Selecciona</option>
+          <option>Sí, cocina completa</option>
+          <option>Sí, parcialmente equipada</option>
+          <option>No, requieren instalación</option>
+        </select>
+      </div>
+      <button class="fsubmit" onclick="send(this)">Enviar solicitud de cotización →</button>
+    </div>
+ 
+    <div class="fbody" id="f-emp">
+      <div class="frow">
+        <div class="fg"><label>Nombre completo</label><input type="text" placeholder="Tu nombre"></div>
+        <div class="fg"><label>Teléfono</label><input type="tel" placeholder="664 xxx xxxx"></div>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="tu@correo.com"></div>
+      <div class="fg">
+        <label>Vacante de interés</label>
+        <select>
+          <option value="">Selecciona</option>
+          <option>Chef / Cocinero</option>
+          <option>Auxiliar de cocina</option>
+          <option>Cajero / Atención al cliente</option>
+          <option>Repartidor</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="fg"><label>Mensaje</label><textarea placeholder="Cuéntanos un poco sobre ti…"></textarea></div>
+      <button class="fsubmit" onclick="send(this)">Enviar solicitud de empleo →</button>
+    </div>
+ 
+    <div class="fbody" id="f-pro">
+      <div class="frow">
+        <div class="fg"><label>Empresa / Nombre</label><input type="text" placeholder="Tu empresa"></div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="contacto@empresa.com"></div>
+      </div>
+      <div class="fg"><label>Producto o giro</label><input type="text" placeholder="¿Qué ofreces?"></div>
+      <div class="fg">
+        <label>Cobertura</label>
+        <select>
+          <option value="">Selecciona</option>
+          <option>Nacional</option>
+          <option>Regional · Baja California</option>
+          <option>Local · Tijuana</option>
+        </select>
+      </div>
+      <div class="fg"><label>Mensaje</label><textarea placeholder="Cuéntanos sobre tu producto…"></textarea></div>
+      <button class="fsubmit" onclick="send(this)">Enviar información →</button>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo" style="display:inline-flex">
+        <div class="nav-logomark">RL</div>
+        <div class="nav-wordmark">
+          <strong style="color:#fff">RL Foods</strong>
+          <span>Servicios Gastronómicos</span>
+        </div>
+      </div>
+      <p>Empresa 100% mexicana con 12 años de experiencia en comedores industriales para maquilas e industria en Tijuana, Baja California.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navegación</h5>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <a href="tel:6648564040">664 856 4040</a>
+      <a href="tel:6641236691">664 123 6691</a>
+      <a href="#">C.P. José Luis Estrada</a>
+      <a href="https://rlfoodss.com" target="_blank">rlfoodss.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 RL Foods · Servicios Gastronómicos. Todos los derechos reservados.</p>
+    <div class="footer-accent">
+      <div class="footer-accent-dot" style="background:var(--green)"></div>
+      <div class="footer-accent-dot" style="background:var(--orange)"></div>
+      <div class="footer-accent-dot" style="background:var(--red)"></div>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+// NAV on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', window.scrollY > 30);
+}, { passive: true });
+ 
+// Intersection reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 3 * 90) + 'ms';
+  io.observe(el);
+});
+ 
+// Form tabs
+function tab(id, el) {
+  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.fbody').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('f-' + id).classList.add('on');
+}
+ 
+// Submit
+function send(btn) {
+  btn.textContent = '✓ Enviado — te contactamos pronto';
+  btn.classList.add('sent');
+  setTimeout(() => {
+    btn.textContent = btn.textContent.replace('✓ Enviado — te contactamos pronto', '');
+    btn.classList.remove('sent');
+  }, 4000);
+}
+</script>
+</body>
+</html>
+ 
