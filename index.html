@@ -104,9 +104,8 @@ nav.solid {
    HERO
 ═══════════════════════════════════════ */
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);  /* ya no cuenta el nav dos veces */
   display: grid; grid-template-columns: 1fr 1fr;
-  padding-top: 100px;
   background: var(--surface);
   position: relative; overflow: hidden;
 }
@@ -126,7 +125,7 @@ nav.solid {
  
 .hero-left {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 80px 6% 80px 8%;
+  padding: 40px 6% 40px 8%;   
   position: relative; z-index: 1;
 }
  
